@@ -202,8 +202,8 @@ def _run():
 
     # parse args
     opts, args = parseArgs(sys.argv)
-    opts.base = unicode(opts.base or "", sys.getfilesystemencoding())
-    opts.profile = unicode(opts.profile or "", sys.getfilesystemencoding())
+    opts.base = unicode(opts.base or os.path.expanduser("~/anki"), sys.getfilesystemencoding())
+    opts.profile = unicode(opts.profile or "muflax", sys.getfilesystemencoding())
 
     # on osx we'll need to add the qt plugins to the search path
     if isMac and getattr(sys, 'frozen', None):
